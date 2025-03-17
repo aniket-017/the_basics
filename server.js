@@ -166,17 +166,7 @@ io.on("connect", (socket) => {
     console.log("consumerParams: ", consumerParams);
     ack(consumerParams);
 
-    // **Extract the MediaStreamTrack and Log It**
-    const mediaStream = new MediaStream();
-    mediaStream.addTrack(thisClientConsumer.track);
 
-    console.log("MediaStreamTrack: ", thisClientConsumer.track); // ✅ Console log the MediaStreamTrack
-
-    // Attach to a <video> element to debug visually
-    const videoElement = document.createElement("video");
-    videoElement.srcObject = mediaStream;
-    videoElement.autoplay = true;
-    document.body.appendChild(videoElement);
   });
 
   socket.on("unpauseConsumer", async (ack) => {
